@@ -2,32 +2,84 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
+@media screen and (max-width: 767px) {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --padding-layout: 0rem 2rem;
   }
 }
 
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  :root {
+    --padding-layout: 0rem 4rem;
+  }
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1279px) {
+  :root {
+    --padding-layout: 0rem 8rem;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  :root {
+    --padding-layout: 0rem 12rem;
+  }
+}
+
+*::selection {
+  @apply bg-text-light text-background-light dark:bg-text-dark dark:text-background-dark;
+}
+
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  @apply bg-background-light text-text-light dark:bg-background-dark dark:text-text-dark;
+}
+
+h1 {
+  @apply text-xl sm:text-2xl font-bold;
+}
+
+* {
+  @apply text-sm sm:text-base;
+}
+
+.layout {
+  padding: var(--padding-layout);
 }
 
 @layer utilities {
+  nav.navbar {
+    @apply px-6 py-3 flex justify-between items-center top-0 sticky z-50 backdrop-blur bg-background-light/50 dark:bg-background-dark/50;
+  }
+
   .text-balance {
     text-wrap: balance;
+  }
+
+  .input-label {
+    @apply absolute inset-0 pointer-events-none translate-x-2 translate-y-1 transition-all duration-200 ease-in-out w-fit h-fit text-primary-light dark:text-primary-dark;
+  }
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:focus {
+    transition:
+      background-color 600000s 0s,
+      color 600000s 0s;
+  }
+  input[data-autocompleted] {
+    background-color: transparent !important;
+  }
+
+  input.input {
+    @apply w-full text-text-light dark:text-text-dark py-1 px-2 bg-background-light dark:bg-background-dark outline-none border border-primary-light/50 dark:border-primary-dark/50 rounded-md transition-all duration-200 ease-in-out;
+  }
+
+  input.input:not(:placeholder-shown) ~ .input-label,
+  input.input:focus ~ .input-label {
+    @apply -translate-y-3 text-xs bg-background-light dark:bg-background-dark px-1;
+  }
+
+  input.input:not(:placeholder-shown),
+  input.input:focus {
+    @apply border-primary-light dark:border-primary-dark;
   }
 }
