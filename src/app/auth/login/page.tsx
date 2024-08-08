@@ -114,9 +114,6 @@ export default function Login() {
       <React.Suspense fallback={<div>Loading...</div>}>
         <LoginContent />
       </React.Suspense>
-      <footer className="bottom-0 absolute text-fade mb-3">
-        &copy; {new Date().getFullYear()} Tokoku. All rights reserved
-      </footer>
     </Main>
   );
 }

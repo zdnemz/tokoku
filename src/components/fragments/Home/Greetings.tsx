@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 
 import { Session } from '@/types/lib';
 import greetings from '@/utils/greetings';
+import { Text } from '@/components/elements/Text';
 
 const tagLines = [
   'Belanja hemat dan keren di sini! Temukan produk-produk kece dengan harga yang bikin senyum.',
@@ -31,9 +32,9 @@ export default function Greetings() {
 
   return (
     <div className="mt-3">
-      <h1>
+      <Text variant="heading">
         {greeting} {(session as Session)?.user.username}!
-      </h1>
+      </Text>
       <p className="text-text-light/70 dark:text-text-dark/70">{tagline}</p>
     </div>
   );

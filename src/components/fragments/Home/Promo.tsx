@@ -1,7 +1,9 @@
+import { Text } from '@/components/elements/Text';
+
 export default function Promo() {
   return (
     <div className="flex flex-col">
-      <h1>Cari promo untukmu</h1>
+      <Text variant="heading">Cari promo untukmu</Text>
     </div>
   );
 }

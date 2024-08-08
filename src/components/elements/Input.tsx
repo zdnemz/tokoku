@@ -1,6 +1,9 @@
 'use client';
-import Visibility from '@mui/icons-material/Visibility';
-import VisibilityOff from '@mui/icons-material/VisibilityOff';
+
+import {
+  UilEye as Eye,
+  UilEyeSlash as EyeSlash,
+} from '@iconscout/react-unicons';
 import React from 'react';
 
 export default function Input({
@@ -26,9 +29,9 @@ export default function Input({
           className="absolute right-3 top-1/2 transform -translate-y-1/2"
         >
           {showPassword ? (
-            <VisibilityOff className="text-text-light dark:text-text-dark" />
+            <Eye className="text-text-light dark:text-text-dark" />
           ) : (
-            <Visibility className="text-text-light dark:text-text-dark" />
+            <EyeSlash className="text-text-light dark:text-text-dark" />
           )}
         </button>
       )}

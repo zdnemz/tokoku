@@ -7,7 +7,6 @@ import {
   Promo,
 } from '@/components/fragments/Home';
 import Image from 'next/image';
-import Footer from '@/components/elements/Footer';
 
 export default function Home() {
   return (
@@ -30,7 +29,6 @@ export default function Home() {
         <Categories />
         <Promo />
       </Main>
-      <Footer />
     </>
   );
 }

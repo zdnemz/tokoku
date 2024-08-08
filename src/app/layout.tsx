@@ -3,6 +3,8 @@ import { Poppins } from 'next/font/google';
 import './globals.css';
 import NextAuthProvider from '@/providers/NextAuth';
 import { Toaster } from 'react-hot-toast';
+import { LoadingProvider } from '@/providers/Loading';
+import Footer from '@/components/elements/Footer';
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -29,6 +31,7 @@ export default function RootLayout({
           {/* <LoadingProvider> */}
           <Toaster toastOptions={{ duration: 3000 }} position="bottom-left" />
           {children}
+          <Footer />
           {/* </LoadingProvider> */}
         </NextAuthProvider>
       </body>

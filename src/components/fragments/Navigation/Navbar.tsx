@@ -1,11 +1,12 @@
 import Link from 'next/link';
-import Cart from '@mui/icons-material/ShoppingCartOutlined';
+import { UilShoppingCart as Cart } from '@iconscout/react-unicons';
 import Session from './Session';
+import { Text } from '@/components/elements/Text';
 
 export default function Navbar() {
   return (
     <nav className="navbar">
-      <h1>Tokoku</h1>
+      <Text variant="heading">Tokoku</Text>
       <div>
         <div className="flex justify-center items-center gap-3">
           <Link

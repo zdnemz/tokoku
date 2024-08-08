@@ -33,6 +33,10 @@ const config: Config = {
           light: '#e0e0e0',
           dark: '#2c2c2c',
         },
+        skeleton: {
+          light: '#e0e0e0',
+          dark: '#2c2c2c',
+        },
       },
     },
   },

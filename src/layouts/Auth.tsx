@@ -1,6 +1,7 @@
 'use client';
 
 import Button from '@/components/elements/Button';
+import { Text } from '@/components/elements/Text';
 import { useSession } from 'next-auth/react';
 import Link from 'next/link';
 import * as React from 'react';
@@ -14,11 +15,13 @@ export default function Auth({ children, className }: MainProps) {
   const { data: session } = useSession();
   return (
     <main
-      className={`w-full layout ${className || ''} ${!session ? 'flex justify-center items-center' : ''}`}
+      className={`w-full layout ${className || ''} ${!session ? 'flex justify-center items-center min-h-[100vh]' : ''}`}
     >
       {!session ? (
         <div>
-          <h1>Untuk mengakses halaman ini, kamu harus login dulu !</h1>
+          <Text variant="heading">
+            Untuk mengakses halaman ini, kamu harus login dulu !
+          </Text>
           <Button variant="text">
             <Link href="/auth/login">Login disini</Link>
           </Button>

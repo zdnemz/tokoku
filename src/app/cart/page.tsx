@@ -1,4 +1,4 @@
-import Footer from '@/components/elements/Footer';
+import { Text } from '@/components/elements/Text';
 import SimpleNavbar from '@/components/fragments/Navigation/SimpleNavbar';
 import Auth from '@/layouts/Auth';
 
@@ -7,9 +7,8 @@ export default function Cart() {
     <>
       <SimpleNavbar />
       <Auth>
-        <h1>Produk dalam keranjangmu</h1>
+        <Text variant="heading">Produk dalam keranjangmu</Text>
       </Auth>
-      <Footer />
     </>
   );
 }

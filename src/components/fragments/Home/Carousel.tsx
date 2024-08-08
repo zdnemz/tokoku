@@ -1,8 +1,10 @@
 'use client';
 
 import * as React from 'react';
-import Left from '@mui/icons-material/KeyboardArrowLeft';
-import Right from '@mui/icons-material/KeyboardArrowRight';
+import {
+  UilAngleLeft as Left,
+  UilAngleRight as Right,
+} from '@iconscout/react-unicons';
 
 interface CarouselProps {
   children: React.ReactNode[] | React.ReactNode;
