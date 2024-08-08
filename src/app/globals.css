@@ -26,27 +26,27 @@
   }
 }
 
-*::selection {
-  @apply bg-text-light text-background-light dark:bg-text-dark dark:text-background-dark;
-}
-
-body {
-  @apply bg-background-light text-text-light dark:bg-background-dark dark:text-text-dark;
-}
-
-h1 {
-  @apply text-xl sm:text-2xl font-bold;
-}
-
-* {
-  @apply text-sm sm:text-base;
-}
-
 .layout {
   padding: var(--padding-layout);
 }
 
 @layer utilities {
+  *::selection {
+    @apply bg-text-light text-background-light dark:bg-text-dark dark:text-background-dark;
+  }
+
+  body {
+    @apply relative bg-background-light text-text-light dark:bg-background-dark dark:text-text-dark min-h-[100vh];
+  }
+
+  h1 {
+    @apply text-xl sm:text-2xl font-bold;
+  }
+
+  * {
+    @apply text-sm sm:text-base;
+  }
+
   nav.navbar {
     @apply px-6 py-3 flex justify-between items-center top-0 sticky z-50 backdrop-blur bg-background-light/50 dark:bg-background-dark/50;
   }

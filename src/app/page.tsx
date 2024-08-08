@@ -1,11 +1,13 @@
-'use client';
-
 import Main from '@/layouts/Main';
 import { Navbar } from '@/components/fragments/Navigation';
-import { Carousel, Categories } from '@/components/fragments/Home';
+import {
+  Carousel,
+  Categories,
+  Greetings,
+  Promo,
+} from '@/components/fragments/Home';
 import Image from 'next/image';
-import Greetings from '@/components/fragments/Home/Greetings';
-import Loading from '@/components/elements/Loading';
+import Footer from '@/components/elements/Footer';
 
 export default function Home() {
   return (
@@ -26,8 +28,9 @@ export default function Home() {
         </Carousel>
         <Greetings />
         <Categories />
-        <Loading />
+        <Promo />
       </Main>
+      <Footer />
     </>
   );
 }

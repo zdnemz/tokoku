@@ -6,5 +6,5 @@ interface MainProps {
 }
 
 export default function Main({ children, className }: MainProps) {
-  return <main className={`w-full layout ${className}`}>{children}</main>;
+  return <main className={`w-full layout ${className || ''}`}>{children}</main>;
 }

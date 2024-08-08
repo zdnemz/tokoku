@@ -9,7 +9,7 @@ export default function Navbar() {
       <div>
         <div className="flex justify-center items-center gap-3">
           <Link
-            href="/"
+            href="/cart"
             className="text-primary-light hover:text-primary-light/70 dark:text-primary-dark dark:hover:text-primary-dark/70 transition-colors duration-200"
           >
             <Cart />

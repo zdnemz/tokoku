@@ -1,16 +1,12 @@
+'use client';
+
 import Button from '@/components/elements/Button';
-import { useLoading } from '@/providers/Loading';
 import { signOut, useSession } from 'next-auth/react';
 import Link from 'next/link';
 import React from 'react';
 
 export default function Session() {
-  const { data: session, status } = useSession();
-  const { setLoading } = useLoading();
-
-  React.useEffect(() => {
-    setLoading(status === 'loading');
-  }, [status, setLoading]);
+  const { data: session } = useSession();
 
   return (
     <div className="flex gap-3">
