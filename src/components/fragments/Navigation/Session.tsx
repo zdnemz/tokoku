@@ -44,7 +44,7 @@ export default function Session() {
                 <Button onClick={() => setOpen(false)}>Gajadi</Button>
                 <Button
                   variant="fill"
-                  color="danger"
+                  colors="danger"
                   className="font-semibold"
                   onClick={() => signOut()}
                 >

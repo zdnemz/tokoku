@@ -2,14 +2,14 @@ import clsx from 'clsx';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'outline' | 'fill' | 'text';
-  color?: 'primary' | 'secondary' | 'danger';
+  colors?: 'primary' | 'secondary' | 'danger';
 }
 
 export default function Button({
   children,
   className,
   variant = 'fill',
-  color = 'primary',
+  colors = 'primary',
   ...props
 }: ButtonProps) {
   const colorClasses = {
@@ -41,20 +41,20 @@ export default function Button({
 
   const variantClasses = {
     fill: clsx(
-      colorClasses[color].bg,
+      colorClasses[colors].bg,
       'text-text-dark dark:text-text-light',
-      colorClasses[color].hoverBg,
+      colorClasses[colors].hoverBg,
     ),
     outline: clsx(
       'border',
-      colorClasses[color].border,
-      colorClasses[color].text,
-      colorClasses[color].hoverText,
+      colorClasses[colors].border,
+      colorClasses[colors].text,
+      colorClasses[colors].hoverText,
     ),
     text: clsx(
-      colorClasses[color].text,
+      colorClasses[colors].text,
       'group relative',
-      colorClasses[color].hoverText,
+      colorClasses[colors].hoverText,
     ),
   };
 
@@ -62,7 +62,7 @@ export default function Button({
   const textVariantUnderline = variant === 'text' && (
     <div
       className={clsx(
-        `absolute ${colorClasses[color].bg} group-hover:bg-text-light dark:group-hover:bg-text-dark`,
+        `absolute ${colorClasses[colors].bg} group-hover:bg-text-light dark:group-hover:bg-text-dark`,
         'inset-x-0 bottom-[15%] transition-all duration-300 ease-in-out w-0 group-hover:w-full h-px',
       )}
     />
