@@ -1,6 +1,6 @@
 import authOptions from '@/lib/auth/nextAuth';
 import { retrieveDataById } from '@/lib/firebase/service';
-import { Session, User } from '@/types/lib';
+import { Session } from '@/types/lib';
 import response from '@/utils/response';
 import { Timestamp } from 'firebase/firestore';
 import { getServerSession } from 'next-auth';

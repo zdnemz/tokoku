@@ -1,3 +1,4 @@
+import Button from '@/components/elements/Button';
 import Image from '@/components/elements/Image';
 import { Text } from '@/components/elements/Text';
 import Link from 'next/link';
@@ -35,14 +36,6 @@ const CategoriesData = [
     name: 'tas',
     image: '/tas.jpg',
   },
-  {
-    name: 'celana panjang',
-    image: '/celana-panjang.jpg',
-  },
-  {
-    name: 'celana pendek',
-    image: '/celana-pendek.jpg',
-  },
 ];
 
 export default function Categories() {
@@ -51,24 +44,27 @@ export default function Categories() {
       <Text variant="heading" className=" max-w-[75%]">
         Kategori Recommended Untukmu!
       </Text>
-      <div className="grid grid-cols-5 gap-6 mt-4 w-full">
+      <div className="flex overflow-x-auto gap-6 py-3 justify-between">
         {CategoriesData.map((category, index) => (
           <Link
+            className="flex flex-col justify-center items-center w-fit group"
             href={`/products/categories/${category.name}`}
             key={category.name}
           >
-            <div className="flex flex-col relative overflow-hidden rounded-lg group">
-              <Image
-                className="w-full h-24"
-                src={`/${index + 1}.jpg`}
-                alt={category.name}
-                width={100}
-                height={100}
-              />
-              <div className="w-full absolute bottom-0 py-1.5 bg-text-light/70 text-text-dark flex justify-center items-center rounded-lg group-hover:py-9 group-hover:bg-text-light/50 transition-all duration-300">
-                <p>{category.name}</p>
-              </div>
-            </div>
+            <Image
+              className="w-24 h-24 rounded-xl overflow-hidden group-hover:opacity-80 transition-all duration-300 ease-in-out"
+              src={`/${index + 1}.jpg`}
+              alt={category.name}
+              width={100}
+              height={100}
+            />
+            <Text
+              variant="subheading"
+              className={`group-hover:text-primary-light dark:group-hover:text-primary-dark text-text-light dark:text-text-dark transition-all duration-300 ease-in-out relative`}
+            >
+              <div className="absolute group-hover:bg-primary-light dark:group-hover:bg-primary-dark bg-text-light dark:bg-text-dark inset-x-0 bottom-[15%] transition-all duration-300 ease-in-out w-0 group-hover:w-full h-px" />
+              {category.name}
+            </Text>
           </Link>
         ))}
       </div>

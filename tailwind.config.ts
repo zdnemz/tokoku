@@ -25,10 +25,6 @@ const config: Config = {
           light: '#212121',
           dark: '#e0e0e0',
         },
-        accent: {
-          light: '#d32f2f',
-          dark: '#cf6679',
-        },
         border: {
           light: '#e0e0e0',
           dark: '#2c2c2c',
@@ -36,6 +32,10 @@ const config: Config = {
         skeleton: {
           light: '#e0e0e0',
           dark: '#2c2c2c',
+        },
+        danger: {
+          light: '#d32f2f',
+          dark: '#cf6679',
         },
       },
     },

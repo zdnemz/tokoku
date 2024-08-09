@@ -5,6 +5,7 @@ import NextAuthProvider from '@/providers/NextAuth';
 import { Toaster } from 'react-hot-toast';
 import { LoadingProvider } from '@/providers/Loading';
 import Footer from '@/components/elements/Footer';
+import { ModalsProvider } from '@/providers/Modals';
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -28,11 +29,13 @@ export default function RootLayout({
     <html lang="en">
       <body className={poppins.variable}>
         <NextAuthProvider>
-          {/* <LoadingProvider> */}
-          <Toaster toastOptions={{ duration: 3000 }} position="bottom-left" />
-          {children}
-          <Footer />
-          {/* </LoadingProvider> */}
+          <ModalsProvider>
+            {/* <LoadingProvider> */}
+            <Toaster toastOptions={{ duration: 3000 }} position="bottom-left" />
+            {children}
+            <Footer />
+            {/* </LoadingProvider> */}
+          </ModalsProvider>
         </NextAuthProvider>
       </body>
     </html>

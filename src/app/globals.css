@@ -31,6 +31,14 @@
   padding-top: 4rem;
 }
 
+.modal {
+  @apply fixed z-[999] inset-0 w-full h-[100vh] flex justify-center items-center bg-background-dark/80;
+}
+
+.modal-content {
+  @apply relative z-[1000] w-fit bg-background-light dark:bg-background-dark rounded-lg p-6;
+}
+
 @layer utilities {
   *::selection {
     @apply bg-text-light text-background-light dark:bg-text-dark dark:text-background-dark;

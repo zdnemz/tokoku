@@ -1,3 +1,4 @@
+'use client';
 import { Text } from '@/components/elements/Text';
 
 export default function Promo() {

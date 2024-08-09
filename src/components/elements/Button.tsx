@@ -1,41 +1,80 @@
+import clsx from 'clsx';
+
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'outline' | 'fill' | 'text';
+  color?: 'primary' | 'secondary' | 'danger';
 }
 
 export default function Button({
   children,
   className,
   variant = 'fill',
+  color = 'primary',
   ...props
 }: ButtonProps) {
-  switch (variant) {
-    case 'outline':
-      return (
-        <button
-          className={`border border-primary-light/50 dark:border-primary-dark/50 py-1 px-2 text-primary-light dark:text-primary-dark rounded-md transition-all duration-300 ease-in-out hover:border-primary-light dark:hover:border-primary-dark hover:bg-primary-light dark:hover:bg-primary-dark hover:text-text-dark dark:hover:text-text-light ${className || ''}`}
-          {...props}
-        >
-          {children}
-        </button>
-      );
-    case 'fill':
-      return (
-        <button
-          className={`bg-primary-light dark:bg-primary-dark py-1 px-2 text-text-dark dark:text-text-light rounded-md transition-all duration-300 ease-in-out hover:bg-primary-light/80 dark:hover:bg-primary-dark/80 ${className || ''}`}
-          {...props}
-        >
-          {children}
-        </button>
-      );
-    case 'text':
-      return (
-        <button
-          className={`text-primary-light dark:text-primary-dark hover:text-text-light dark:hover:text-text-dark transition-all duration-300 ease-in-out group relative ${className || ''}`}
-          {...props}
-        >
-          <div className="absolute bg-primary-light dark:bg-primary-dark group-hover:bg-text-light dark:group-hover:bg-text-dark inset-x-0 bottom-[15%] transition-all duration-300 ease-in-out w-0 group-hover:w-full h-px" />
-          {children}
-        </button>
-      );
-  }
+  const colorClasses = {
+    primary: {
+      text: 'text-primary-light dark:text-primary-dark',
+      bg: 'bg-primary-light dark:bg-primary-dark',
+      border: 'border-primary-light/50 dark:border-primary-dark/50',
+      hoverText: 'hover:text-primary-dark dark:hover:text-primary-light',
+      hoverBg: 'hover:bg-primary-light/80 dark:hover:bg-primary-dark/80',
+    },
+    secondary: {
+      text: 'text-secondary-light dark:text-secondary-dark',
+      bg: 'bg-secondary-light dark:bg-secondary-dark',
+      border: 'border-secondary-light/50 dark:border-secondary-dark/50',
+      hoverText: 'hover:text-secondary-dark dark:hover:text-secondary-light',
+      hoverBg: 'hover:bg-secondary-light/80 dark:hover:bg-secondary-dark/80',
+    },
+    danger: {
+      text: 'text-danger-light dark:text-danger-dark',
+      bg: 'bg-danger-light dark:bg-danger-dark',
+      border: 'border-danger-light/50 dark:border-danger-dark/50',
+      hoverText: 'hover:text-danger-dark dark:hover:text-danger-light',
+      hoverBg: 'hover:bg-danger-light/80 dark:hover:bg-danger-dark/80',
+    },
+  };
+
+  const baseClasses =
+    'py-1 px-2 rounded-md transition-all duration-300 ease-in-out';
+
+  const variantClasses = {
+    fill: clsx(
+      colorClasses[color].bg,
+      'text-text-dark dark:text-text-light',
+      colorClasses[color].hoverBg,
+    ),
+    outline: clsx(
+      'border',
+      colorClasses[color].border,
+      colorClasses[color].text,
+      colorClasses[color].hoverText,
+    ),
+    text: clsx(
+      colorClasses[color].text,
+      'group relative',
+      colorClasses[color].hoverText,
+    ),
+  };
+
+  // underline for 'text' variants
+  const textVariantUnderline = variant === 'text' && (
+    <div
+      className={clsx(
+        `absolute ${colorClasses[color].bg} group-hover:bg-text-light dark:group-hover:bg-text-dark`,
+        'inset-x-0 bottom-[15%] transition-all duration-300 ease-in-out w-0 group-hover:w-full h-px',
+      )}
+    />
+  );
+
+  return (
+    <button
+      className={clsx(baseClasses, variantClasses[variant], className)}
+      {...props}
+    >
+      {children}
+      {textVariantUnderline}
+    </button>
+  );
 }
