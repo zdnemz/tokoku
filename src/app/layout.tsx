@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 import { Poppins } from 'next/font/google';
 import './globals.css';
+import '@fortawesome/fontawesome-svg-core/styles.css';
 import NextAuthProvider from '@/providers/NextAuth';
 import { Toaster } from 'react-hot-toast';
-import { LoadingProvider } from '@/providers/Loading';
 import Footer from '@/components/elements/Footer';
 import { ModalsProvider } from '@/providers/Modals';
 

@@ -38,7 +38,9 @@ export default function Profile() {
               </Text>
             )}
           </div>
-          <pre>{JSON.stringify(user, null, 2)}</pre>
+          <pre className="text-text-light/70 dark:text-text-dark/70 flex text-wrap max-w-[80vw]">
+            {JSON.stringify(user, null, 2)}
+          </pre>
         </div>
       </Auth>
     </>

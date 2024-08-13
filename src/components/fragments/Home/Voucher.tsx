@@ -1,10 +1,9 @@
-'use client';
 import { Text } from '@/components/elements/Text';
 
-export default function Promo() {
+export default function Voucher() {
   return (
     <div className="flex flex-col">
-      <Text variant="heading">Promo Untukmu Hari Ini</Text>
+      <Text variant="heading">Klaim Voucher Kamu!</Text>
     </div>
   );
 }

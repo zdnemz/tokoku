@@ -13,7 +13,8 @@ export default function Modals({ children, duration }: ModalsProps) {
 
   useEffect(() => {
     setContent(<>{children}</>);
-  }, [setContent, children]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [setContent]);
 
   useEffect(() => {
     if (!duration) return;

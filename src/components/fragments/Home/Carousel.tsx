@@ -1,10 +1,8 @@
 'use client';
 
 import * as React from 'react';
-import {
-  UilAngleLeft as Left,
-  UilAngleRight as Right,
-} from '@iconscout/react-unicons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
 
 interface CarouselProps {
   children: React.ReactNode[] | React.ReactNode;
@@ -48,26 +46,30 @@ export default function Carousel(props: CarouselProps) {
         className && className
       }`}
     >
-      <Left
-        className="group-hover:translate-x-4 group-hover:opacity-100 opacity-0 transition-all absolute top-1/2 translate-x-8 -translate-y-1/2 left-0 bg-background-light/70 dark:bg-background-dark/70 z-10 w-6 h-6 flex justify-center items-center rounded-full cursor-pointer icon"
-        onClick={() => {
-          if (current > 0) {
-            setCurrent(current - 1);
-          } else {
-            setCurrent(childrens.length - 1);
-          }
-        }}
-      />
-      <Right
-        className="group-hover:-translate-x-4 group-hover:opacity-100 opacity-0 transition-all absolute top-1/2 -translate-x-8 -translate-y-1/2 right-0 bg-background-light/70 dark:bg-background-dark/70 z-10 w-6 h-6 flex justify-center items-center rounded-full cursor-pointer icon"
-        onClick={() => {
-          if (current < childrens.length - 1) {
-            setCurrent(current + 1);
-          } else {
-            setCurrent(0);
-          }
-        }}
-      />
+      <div className="group-hover:translate-x-4 group-hover:opacity-100 opacity-0 transition-all absolute top-1/2 translate-x-8 -translate-y-1/2 left-0 bg-background-light/70 dark:bg-background-dark/70 z-10 w-6 h-6 flex justify-center items-center rounded-full cursor-pointer">
+        <FontAwesomeIcon
+          icon={faAngleLeft}
+          onClick={() => {
+            if (current > 0) {
+              setCurrent(current - 1);
+            } else {
+              setCurrent(childrens.length - 1);
+            }
+          }}
+        />
+      </div>
+      <div className="group-hover:-translate-x-4 group-hover:opacity-100 opacity-0 transition-all absolute top-1/2 -translate-x-8 -translate-y-1/2 right-0 bg-background-light/70 dark:bg-background-dark/70 z-10 w-6 h-6 flex justify-center items-center rounded-full cursor-pointer">
+        <FontAwesomeIcon
+          icon={faAngleRight}
+          onClick={() => {
+            if (current < childrens.length - 1) {
+              setCurrent(current + 1);
+            } else {
+              setCurrent(0);
+            }
+          }}
+        />
+      </div>
       <div
         className={`h-full transition-transform duration-300 ease-in-out flex`}
         style={{

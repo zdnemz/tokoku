@@ -52,7 +52,7 @@ export default function Categories() {
             key={category.name}
           >
             <Image
-              className="w-24 h-24 rounded-xl overflow-hidden group-hover:opacity-80 transition-all duration-300 ease-in-out"
+              className="w-[15vw] h-[15vw] max-h-24 max-w-24 rounded-xl overflow-hidden group-hover:opacity-80 transition-all duration-300 ease-in-out"
               src={`/${index + 1}.jpg`}
               alt={category.name}
               width={100}

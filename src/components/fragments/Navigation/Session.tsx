@@ -16,18 +16,24 @@ export default function Session() {
     <div className="flex gap-3">
       {!session ? (
         <>
-          <Button variant="outline" className="font-semibold">
-            <Link href="/auth/login">Login</Link>
-          </Button>
-          <Button variant="outline" className="font-semibold">
-            <Link href="/auth/register">Register</Link>
-          </Button>
+          <Link href="/auth/login">
+            <Button variant="outline" className="font-semibold">
+              Login
+            </Button>
+          </Link>
+          <Link href="/auth/register">
+            <Button variant="outline" className="font-semibold">
+              Register
+            </Button>
+          </Link>
         </>
       ) : (
         <>
-          <Button variant="outline" className="font-semibold">
-            <Link href="/profile">Profile</Link>
-          </Button>
+          <Link href="/profile">
+            <Button variant="outline" className="font-semibold">
+              Profile
+            </Button>
+          </Link>
           <Button
             variant="text"
             className="font-semibold"

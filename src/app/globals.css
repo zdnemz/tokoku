@@ -48,12 +48,8 @@
     @apply relative bg-background-light text-text-light dark:bg-background-dark dark:text-text-dark min-h-[100vh];
   }
 
-  * {
-    @apply text-sm sm:text-base;
-  }
-
   nav.navbar {
-    @apply px-6 py-3 flex justify-between items-center top-0 fixed w-full z-50 backdrop-blur bg-background-light/50 dark:bg-background-dark/50;
+    @apply px-6 py-3 top-0 fixed w-full z-50 backdrop-blur bg-background-light/50 dark:bg-background-dark/50;
   }
 
   .text-balance {
@@ -72,6 +68,11 @@
   }
   input[data-autocompleted] {
     background-color: transparent !important;
+  }
+
+  input[type='search']::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    appearance: none;
   }
 
   input.input {

@@ -1,9 +1,7 @@
 'use client';
 
-import {
-  UilEye as Eye,
-  UilEyeSlash as EyeSlash,
-} from '@iconscout/react-unicons';
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 
 export default function Input({
@@ -29,9 +27,15 @@ export default function Input({
           className="absolute right-3 top-1/2 transform -translate-y-1/2"
         >
           {showPassword ? (
-            <Eye className="text-text-light dark:text-text-dark" />
+            <FontAwesomeIcon
+              icon={faEye}
+              className="text-text-light dark:text-text-dark"
+            />
           ) : (
-            <EyeSlash className="text-text-light dark:text-text-dark" />
+            <FontAwesomeIcon
+              icon={faEyeSlash}
+              className="text-text-light dark:text-text-dark"
+            />
           )}
         </button>
       )}

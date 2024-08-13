@@ -5,6 +5,7 @@ import {
   Categories,
   Greetings,
   Promo,
+  Voucher,
 } from '@/components/fragments/Home';
 import Image from 'next/image';
 
@@ -13,7 +14,7 @@ export default function Home() {
     <>
       <Navbar />
       <Main className="min-h-[200vh]">
-        <Carousel auto>
+        <Carousel className="mt-16 sm:mt-0" auto>
           {Array.from({ length: 3 }, (_, index) => (
             <div key={index} className="w-full">
               <Image
@@ -28,6 +29,7 @@ export default function Home() {
         <Greetings />
         <Categories />
         <Promo />
+        <Voucher />
       </Main>
     </>
   );
